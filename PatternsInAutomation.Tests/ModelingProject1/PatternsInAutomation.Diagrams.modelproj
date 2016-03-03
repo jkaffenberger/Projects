@@ -43,6 +43,13 @@
       <SubType>Content</SubType>
       <DependentUpon>DecoratorPatternClassExplosion.classdiagram</DependentUpon>
     </Content>
+    <Content Include="ExtensionMethodsSpecificationDesignPattern.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ExtensionMethodsSpecificationDesignPattern.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ExtensionMethodsSpecificationDesignPattern.classdiagram</DependentUpon>
+    </Content>
     <Content Include="FacadeDesignPattern.classdiagram">
       <SubType>Content</SubType>
     </Content>
@@ -63,6 +70,13 @@
     <Content Include="IocPageObjectPattern.classdiagram.layout">
       <SubType>Content</SubType>
       <DependentUpon>IocPageObjectPattern.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="LinqSpecificationDesignPattern.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LinqSpecificationDesignPattern.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>LinqSpecificationDesignPattern.classdiagram</DependentUpon>
     </Content>
     <Content Include="ObserverDesignPattern.classdiagram">
       <SubType>Content</SubType>
@@ -92,12 +106,26 @@
       <SubType>Content</SubType>
       <DependentUpon>PageObjects.classdiagram</DependentUpon>
     </Content>
+    <Content Include="RulesDesignPattern.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="RulesDesignPattern.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>RulesDesignPattern.classdiagram</DependentUpon>
+    </Content>
     <Content Include="SingletonDesignPattern.classdiagram">
       <SubType>Content</SubType>
     </Content>
     <Content Include="SingletonDesignPattern.classdiagram.layout">
       <SubType>Content</SubType>
       <DependentUpon>SingletonDesignPattern.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="SpecificationDesignPattern.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SpecificationDesignPattern.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>SpecificationDesignPattern.classdiagram</DependentUpon>
     </Content>
     <Content Include="StrategyDesignPattern.classdiagram">
       <SubType>Content</SubType>
