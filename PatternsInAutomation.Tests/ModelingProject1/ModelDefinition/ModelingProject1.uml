@@ -21,6 +21,14 @@
       Id="5d60d00b-148c-4011-893a-fad3ba6a324b">
       <body>Concrete Decorators</body>
     </comment>
+    <comment
+      Id="6bad18be-1c9c-4ed2-b7cc-b6a555aec13c">
+      <body>Abstract Rule</body>
+    </comment>
+    <comment
+      Id="a30bbc2f-a54a-4071-be5a-18b485e0d4f2">
+      <body>Concrete Rule</body>
+    </comment>
   </ownedCommentsInternal>
   <profileInstances>
     <packageHasProfileInstances
@@ -4889,6 +4897,1667 @@
             aggregation="None"
             isComposite="false" />
         </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b7e53d0c-da9e-400d-abdb-99e2e798e9ea"
+        name="BaseRule"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="85022ab0-ba61-471c-b3e0-eddca6b15cb2">
+            <interfaceMoniker
+              Id="00b5d2a3-08ed-4be5-b500-a8576b27cede"
+              LastKnownName="IRule"
+              LastKnownLocation="ModelingProject1.uml" />
+          </interfaceRealization>
+          <dependency
+            Id="af457faa-1a63-4072-94d1-c2e707b53ec7">
+            <interfaceMoniker
+              Id="41f18efd-9524-4584-a4f3-77ddc93b59e8"
+              LastKnownName="IRuleResult"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="01679261-92b9-4ddd-b9a1-7f61e0cf0efe"
+            name="IRuleResult Eval"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="00b5d2a3-08ed-4be5-b500-a8576b27cede"
+        name="IRule"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="589b1c5f-7bb7-4a77-baf9-ceb714f98fe8">
+            <interfaceMoniker
+              Id="41f18efd-9524-4584-a4f3-77ddc93b59e8"
+              LastKnownName="IRuleResult"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperations>
+          <operation
+            Id="6914759c-826c-4cb8-92cf-f5e4ea492740"
+            name="IRuleResult Eval"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bb9c8784-c04e-406d-9608-43fbd411d14c"
+        name="RulesEvaluator"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="938ab0fd-0404-47fc-8af3-c42d809eb343"
+            isDerived="false"
+            sourceEndRoleName="RulesEvaluator"
+            targetEndRoleName="RulesChain"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f61d991c-004f-4110-8c75-0c53ec7acaf7"
+              LastKnownName="RulesChain"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a5199c47-ba98-4973-a8f0-299c39509e21"
+                  name="RulesEvaluator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5c9e6589-5ce7-4460-baba-337e32fdf2cf"
+                  name="RulesChain"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="0f54b19e-a088-4856-917b-4769337a6ab3"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="48fb1721-21e2-4996-9916-ab7522135621"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation
+            Id="79b27eb7-0e44-4e92-835b-8540e5e9df2f"
+            name="RulesChain Eval"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="182a20a6-bba0-4a94-87b4-d30940457117"
+                  name="IRule rule"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="bed5ddb3-fdf9-41a1-915d-f1ace7ff1682"
+            name="OtherwiseEval"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a856bf81-591f-4ff6-a46e-c2bc18641b32"
+                  name="IRule alternativeRule"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1ef863ff-2e62-444e-aaee-ab87db2008ce"
+            name="OtherwiseDo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0a5854db-d29a-45dc-93b0-20cc75956b31"
+                  name="Action otherwiseAction"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="72f801ee-4d5c-4604-80b0-7643ce181eb4"
+            name="EvaluateRulesChains"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="67597f65-98e4-4882-b491-42f6ace5185b"
+        name="Rule"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="04a59d34-7af2-4e5a-a2b8-96e44f02ea55"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b7e53d0c-da9e-400d-abdb-99e2e798e9ea"
+              LastKnownName="BaseRule"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="c1b5b31e-535b-4d13-85da-8a8cb0bea1f2"
+            name="IRuleResult Eval"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="41f18efd-9524-4584-a4f3-77ddc93b59e8"
+        name="IRuleResult"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedAttributes>
+          <property
+            Id="a40e56eb-878f-4a9b-85d4-dbfed62cfe67"
+            name="IsSuccess"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributes>
+        <ownedOperations>
+          <operation
+            Id="2805fe11-727c-411e-aac8-2ba830fe5e68"
+            name="Execute"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f61d991c-004f-4110-8c75-0c53ec7acaf7"
+        name="RulesChain"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="1361ae5b-4b2e-4183-b65e-e3cec7601cf0"
+            isDerived="false"
+            sourceEndRoleName="RulesChain"
+            targetEndRoleName="IRule"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="00b5d2a3-08ed-4be5-b500-a8576b27cede"
+              LastKnownName="IRule"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5aca205b-5a07-406e-948e-877955bcee8c"
+                  name="RulesChain"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="73bd3310-cc39-43ab-8859-c76d8af0f3f1"
+                  name="IRule"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="2a39539d-29a2-4e54-921a-cb41937589b0"
+            isDerived="false"
+            sourceEndRoleName="RulesChain"
+            targetEndRoleName="RulesChain"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f61d991c-004f-4110-8c75-0c53ec7acaf7"
+              LastKnownName="RulesChain"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="854fd630-e22c-4fda-a909-a1dd05898e49"
+                  name="RulesChain"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="23c3726f-6b64-4725-b0b5-b01a17f9e275"
+                  name="RulesChain"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="154c398a-2af1-4913-bf11-0ac0a1687e4e"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="98d34625-25a6-4e98-8722-be58cc3f165d"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="57f37f85-bfc7-4fb4-8e77-48ef4342c0f0"
+            name="IRule Rule"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="18822aed-ec11-44ee-92d8-7a407750298e"
+            name="List&lt;RulesChain&gt; ElseRules"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="5c66ccfc-9161-4ce8-b1a7-59fdc57dee77"
+            name="IsLastInChain"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5153e52b-707e-4147-a0d2-3d0a9f2d9d66"
+        name="Specification&lt;TEntity&gt;"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="e14cb7ce-0d95-4d2b-829d-e197c05010ef">
+            <interfaceMoniker
+              Id="88ceca07-6ecc-4c8d-923c-f39a2ffbbed5"
+              LastKnownName="ISpecification&lt;TEntity&gt;"
+              LastKnownLocation="ModelingProject1.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="f2bc27f9-471a-42e5-83e9-4c9068fc8882"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d7ac1a71-e317-4f66-8b68-a2b6c5d33028"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="08b0965c-9eae-48cd-afb0-e96f43d4c198"
+            name="ISpecification&lt;TEntity&gt; Or"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5647c7b4-a616-440d-8aa4-33fb08d0a1c5"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2992d087-225c-4756-a2d3-6e0d71e08545"
+            name="ISpecification&lt;TEntity&gt; Not"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="e6828fa7-cdbc-4028-9576-40e46c34629e"
+            name="ISpecification&lt;TEntity&gt; And"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4524b255-81f1-43fa-b490-a0a3bfb7f68b"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="88ceca07-6ecc-4c8d-923c-f39a2ffbbed5"
+        name="ISpecification&lt;TEntity&gt;"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="8cf9be5f-b0ee-4a8b-b453-d6a6f446f7ed"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b5ecf0ac-8743-472c-a46d-6ea4d4a04afa"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="39ba9da9-2c46-4282-b7f9-728220349713"
+            name="ISpecification&lt;TEntity&gt; And"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7886a405-927c-4c79-99b5-5d4f2922cbf2"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="52fab06d-c950-496d-a628-2b40e1c41ab0"
+            name="ISpecification&lt;TEntity&gt; Or"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="305aca3b-2eee-418a-9301-a9b8c03331c9"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1d05fa6e-ed76-44a5-b77b-f36e0c232dcb"
+            name="ISpecification&lt;TEntity&gt; Not"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="7ae85025-6166-403e-b3ed-de8d70270a73"
+        name="AndSpecification&lt;TEntity&gt;"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="4dff7177-07ca-4246-91b7-28c62d46717e"
+            isSubstitutable="false">
+            <classMoniker
+              Id="5153e52b-707e-4147-a0d2-3d0a9f2d9d66"
+              LastKnownName="Specification&lt;TEntity&gt;"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="af902122-3331-48df-a3e7-d6f9231d970e"
+            name="ISpecification&lt;TEntity&gt; leftSpecification"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="67ba9191-281b-4883-a3d2-b72054fb60dc"
+            name="ISpecification&lt;TEntity&gt; rightSpecification"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="142e532f-f416-45ba-af61-95f05e802385"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6b4834ec-b720-49a5-a388-2a0ae3169f76"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4cdcec7a-64f2-4015-b217-3260be8ace72"
+        name="NotSpecification&lt;TEntity&gt;"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="83e3c5a5-d258-4841-a198-d215f0eed4ea"
+            isSubstitutable="false">
+            <classMoniker
+              Id="5153e52b-707e-4147-a0d2-3d0a9f2d9d66"
+              LastKnownName="Specification&lt;TEntity&gt;"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="21e1502f-f428-462f-9b89-9609e408c3be"
+            name="ISpecification&lt;TEntity&gt; specification"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="3f31955c-44f8-4ff7-b0c5-71e681b50e74"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9c7e4476-c0cf-4664-8080-fdec0e2c581f"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9335bebd-53d4-4d0d-90d6-3a6a64915b52"
+        name="OrSpecification&lt;TEntity&gt;"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="8ea88811-1f08-4e5b-9d77-860a6cdb822f"
+            isSubstitutable="false">
+            <classMoniker
+              Id="5153e52b-707e-4147-a0d2-3d0a9f2d9d66"
+              LastKnownName="Specification&lt;TEntity&gt;"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="905bb49d-e5bd-480e-9d8d-56dd2d9b949a"
+            name="ISpecification&lt;TEntity&gt; leftSpecification"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="9754f9c8-1505-415a-8071-790de58c51c4"
+            name="ISpecification&lt;TEntity&gt; rightSpecification"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="6fa7fe6e-d249-469e-8d10-167aee74c8be"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9b2d7f89-16a7-4179-828f-464a352569d3"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="87599d75-588f-421b-b40d-6d2b037770fa"
+        name="CreditCardSpecification"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="a9006b28-5f2f-4a99-b7f7-5227c3d3762f"
+            isSubstitutable="false">
+            <classMoniker
+              Id="5153e52b-707e-4147-a0d2-3d0a9f2d9d66"
+              LastKnownName="Specification&lt;TEntity&gt;"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="0c1b7079-594f-4fd2-80bb-5ec6514d5b11"
+            name="PurchaseTestInput purchaseTestInput"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="0db39240-9260-448a-b899-830ce881b946"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3c590637-f804-4bc8-8031-7521a957f7fc"
+                  name="PurchaseTestInput entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="882127bc-1252-4315-ae37-1d5ee5f0c925"
+        name="ISpecification&lt;TEntity&gt;"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="8b7781ad-dc1a-4072-92bc-b52899b48486"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="51b1444b-3a22-478a-acdb-ebf9504e0994"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8a62a867-15e3-4fc0-b710-cd656e78d420"
+            name="ISpecification&lt;TEntity&gt; And"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9d38a91e-7e61-4eef-8add-08ec4f60c697"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="3bbcc83d-f95a-4ff8-a32c-5e47e1ef6c88"
+            name="ISpecification&lt;TEntity&gt; Not"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="221ad641-b148-41ba-9270-c9e468efd912"
+            name="ISpecification&lt;TEntity&gt; Or"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b7949b2e-4656-4262-b4a3-fc6fcfe445e8"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b2719169-dfa9-4089-9c61-a6bd5f48d5e8"
+        name="Specification&lt;TEntity&gt;"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="06762e8c-1b19-4a21-bbf3-1573de71cd8a">
+            <interfaceMoniker
+              Id="882127bc-1252-4315-ae37-1d5ee5f0c925"
+              LastKnownName="ISpecification&lt;TEntity&gt;"
+              LastKnownLocation="ModelingProject1.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="e7943ae0-3f01-4698-95e3-613c84b45664"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="925ba62b-e081-41ab-8e6d-2766ea597d74"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d7daaa58-7425-4ef7-8243-2ddc530ee4b4"
+            name="ISpecification&lt;TEntity&gt; And"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8ecdaf39-ba89-4872-ba24-c41d2c1d1653"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f1fbd090-c1ca-4c63-8350-56433155b339"
+            name="ISpecification&lt;TEntity&gt; Not"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="954477a8-5ebf-45d3-9495-2828cadeb5ae"
+            name="ISpecification&lt;TEntity&gt; Or"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="18bca4f5-1cc9-4175-823b-5f2e5edc11fe"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6d28946e-2eb9-486d-abd4-840275cfe61e"
+        name="ExpressionSpecification&lt;TEntity&gt;"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="e3f8bf18-61c5-4915-8a13-d11a32af9b7a"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b2719169-dfa9-4089-9c61-a6bd5f48d5e8"
+              LastKnownName="Specification&lt;TEntity&gt;"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="eb321f23-d2d1-4413-a391-2f70b330f281"
+            name="Func&lt;TEntity, bool&gt; expression"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="1e404d44-4b87-43ec-9e77-e53da06e94ac"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b930e996-7b2d-449d-b686-07e7f5f2236a"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="7b8b8af0-5651-4f3f-bff1-e04a39c3acda"
+        name="Specification&lt;TEntity&gt;1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="6b04092c-95c5-484d-ba32-d4bec35025b0">
+            <interfaceMoniker
+              Id="d124be95-ca44-4ddb-afd8-d1b7c3c4bcc5"
+              LastKnownName="ISpecification&lt;TEntity&gt;"
+              LastKnownLocation="ModelingProject1.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="a5b8c61d-e31d-4669-8950-a0d67453626c"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3c762fc6-4c34-4465-87a8-8a474e6ea699"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="22c85662-a11a-434d-a844-a0ce6334b5ed"
+            name="ISpecification&lt;TEntity&gt; Or"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8ec09dcd-2dae-46ec-b3e8-2231aeff0f81"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f75c3f6d-f957-46fe-a642-55b15626ce48"
+            name="ISpecification&lt;TEntity&gt; Not"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="eb66b867-638f-40b7-a18b-0be5e4857809"
+            name="ISpecification&lt;TEntity&gt; And"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6322243d-b0b1-4ebb-8331-1cf4ecee51b1"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="d124be95-ca44-4ddb-afd8-d1b7c3c4bcc5"
+        name="ISpecification&lt;TEntity&gt;"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="a3f72d62-aa3b-403f-a9d3-37b1581d1466"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8a811207-4a43-496d-a844-8b7201f9eeb5"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b059a075-5c42-4dfe-bedb-94bd27b2875e"
+            name="ISpecification&lt;TEntity&gt; And"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="92316ba2-a6cf-4de6-b7f7-74482b63b5f7"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="47532453-0d53-4217-92a3-e692ee426e2f"
+            name="ISpecification&lt;TEntity&gt; Or"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f38c5b63-09ba-4f52-88e3-ab3413e3f167"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a3b26a29-4dc0-4060-ae96-7e71a9ae79af"
+            name="ISpecification&lt;TEntity&gt; Not"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f1087fee-0a67-4c5c-877a-0e3c14d957db"
+        name="AndSpecification&lt;TEntity&gt;"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="e9b8686c-0a43-4bdc-8e81-8a8acbc4ff28">
+            <interfaceMoniker
+              Id="d124be95-ca44-4ddb-afd8-d1b7c3c4bcc5"
+              LastKnownName="ISpecification&lt;TEntity&gt;"
+              LastKnownLocation="ModelingProject1.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="10b4e609-2c81-4383-97d1-8ae6bc6b51ce"
+            isSubstitutable="false">
+            <classMoniker
+              Id="7b8b8af0-5651-4f3f-bff1-e04a39c3acda"
+              LastKnownName="Specification&lt;TEntity&gt;1"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="776ae3df-31df-472a-bc34-dff0058869f4"
+            name="ISpecification&lt;TEntity&gt; leftSpecification"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="ca78ee39-b153-4370-9a2a-1f058d6da4d3"
+            name="ISpecification&lt;TEntity&gt; rightSpecification"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="a507e7a5-6809-4ec0-8dc1-6b30eab87950"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="878ef900-da81-4e93-8b9a-81f9dc4e11ee"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="03c0e69a-371e-4d65-9fb5-b8fbe9192ac1"
+            name="ISpecification&lt;TEntity&gt; And"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6e0bf9e4-1f84-4a7e-a286-f456a009f52d"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6725379f-641b-4297-8f3b-a1c6dba171ae"
+            name="ISpecification&lt;TEntity&gt; Or"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b99fd37d-1ab3-4f1a-aae7-d39c43afa8be"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="88c2a34f-5d35-4bde-813b-d0f79489be91"
+            name="ISpecification&lt;TEntity&gt; Not"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9fba2508-8f78-40c7-acb6-4830810d70c6"
+        name="NotSpecification&lt;TEntity&gt;"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="f5f24c6e-0129-47f3-b2b9-7eada89ea278">
+            <interfaceMoniker
+              Id="d124be95-ca44-4ddb-afd8-d1b7c3c4bcc5"
+              LastKnownName="ISpecification&lt;TEntity&gt;"
+              LastKnownLocation="ModelingProject1.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="465df9e5-4df7-4f81-9c80-35f2fefa7cdd"
+            isSubstitutable="false">
+            <classMoniker
+              Id="7b8b8af0-5651-4f3f-bff1-e04a39c3acda"
+              LastKnownName="Specification&lt;TEntity&gt;1"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="fd9abbcb-dd3b-4daa-b705-69dd7ae7e0a5"
+            name="ISpecification&lt;TEntity&gt; specification"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="c5ef7dcd-afe4-4dc5-9708-16809cdc4e91"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1a050005-7ed7-4eb2-8b2e-fb0eb339c02f"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="cee1fdbc-b742-483e-ad54-80e3230f8a29"
+            name="ISpecification&lt;TEntity&gt; And"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="38414992-b720-40f8-9904-d1b1e3d4adf6"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c7c09e82-99a6-4467-b32e-c8de037b9896"
+            name="ISpecification&lt;TEntity&gt; Or"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="52cf864a-43cd-411d-8109-99186ced1671"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="17f26b15-4e65-4983-a55f-6faaba3b9f1b"
+            name="ISpecification&lt;TEntity&gt; Not"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f48b4130-d803-4e78-bc63-3d4229ce00da"
+        name="OrSpecification&lt;TEntity&gt;"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="42193afc-99a9-4906-aa4b-ff8cb24acdb3">
+            <interfaceMoniker
+              Id="d124be95-ca44-4ddb-afd8-d1b7c3c4bcc5"
+              LastKnownName="ISpecification&lt;TEntity&gt;"
+              LastKnownLocation="ModelingProject1.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="e807f31e-1038-42b0-976d-ce2a2e21a6e6"
+            isSubstitutable="false">
+            <classMoniker
+              Id="7b8b8af0-5651-4f3f-bff1-e04a39c3acda"
+              LastKnownName="Specification&lt;TEntity&gt;1"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="c1815598-d909-41e7-a21f-fa6a875a78b5"
+            name="ISpecification&lt;TEntity&gt; leftSpecification"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="010441d6-cf8e-431a-b7e8-ccd3815b7960"
+            name="ISpecification&lt;TEntity&gt; rightSpecification"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="1eae58ef-9f83-4c27-8d2c-b35c22378c95"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b5fb7c23-0992-4584-a24f-428aa4359e18"
+                  name="TEntity entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b112d890-f7f8-4fdf-b2c7-6e1803b249e4"
+            name="ISpecification&lt;TEntity&gt; And"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a9f2c694-95c7-4f90-a6e5-8df95f4d5071"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="0143e358-df4b-4d1e-879e-37aa92aa6ca5"
+            name="ISpecification&lt;TEntity&gt; Or"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2928df2c-c91b-470e-8885-6ea1d0a3ca8c"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="767b43db-a462-4f5d-b485-424d2cb583e7"
+            name="ISpecification&lt;TEntity&gt; Not"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="66c952cf-d883-4c1a-9124-23a0991f03af"
+        name="CreditCardSpecification"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="0ebf3d46-f148-4793-9c70-fedadcb000f6">
+            <interfaceMoniker
+              Id="d124be95-ca44-4ddb-afd8-d1b7c3c4bcc5"
+              LastKnownName="ISpecification&lt;TEntity&gt;"
+              LastKnownLocation="ModelingProject1.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="5b629314-4f1c-4793-b1b4-8814721dbca8"
+            isSubstitutable="false">
+            <classMoniker
+              Id="7b8b8af0-5651-4f3f-bff1-e04a39c3acda"
+              LastKnownName="Specification&lt;TEntity&gt;1"
+              LastKnownLocation="ModelingProject1.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="1e47a895-6d4e-4b3d-996e-220a368d4c1f"
+            name="PurchaseTestInput purchaseTestInput"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="dbf012fe-5a59-4a6d-a7de-b835eb198ec2"
+            name="bool IsSatisfiedBy"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2b3a41ac-e39c-4aa3-8213-a5c6c5c19644"
+                  name="PurchaseTestInput entity"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f5336d29-83c3-458f-83d4-6b79b39e9292"
+            name="ISpecification&lt;TEntity&gt; And"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="497fe74f-9d17-4a42-a723-a03c099da8d6"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4446f7d6-ef0d-4604-a956-45a7bb48d681"
+            name="ISpecification&lt;TEntity&gt; Or"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3a9e1b7d-a8d4-492e-95f8-49f932d0dd53"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b781cb69-29fc-4ff8-8907-817cd7e7d3f7"
+            name="ISpecification&lt;TEntity&gt; Not"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6561e526-0318-43ea-bc7d-238c333f8b5b"
+        name="Class2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="38d99605-b1a8-4951-bf9f-03970ead0a23"
+        name="SpecificationsExtensionMethods"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="0b067651-0032-4a59-9da8-514b4649857a">
+            <interfaceMoniker
+              Id="d124be95-ca44-4ddb-afd8-d1b7c3c4bcc5"
+              LastKnownName="ISpecification&lt;TEntity&gt;"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="f1eead2d-e12d-445d-b628-3bdc4b3aed48"
+            name="ISpecification&lt;TEntity&gt; Or"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f972bd58-9a8c-4ef3-a13f-38d19eaa9740"
+                  name="ISpecification&lt;TEntity&gt; other"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2af60bea-b502-486a-b106-e6366449f793"
+            name="ISpecification&lt;TEntity&gt; Not&lt;TEntity&gt;"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="998414fe-db5f-4c47-8e04-b70ac0f8ba85"
+                  name="this ISpecification&lt;TEntity&gt; specification"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="572e3701-e0c2-4aa0-a6f2-9a971bba085e"
+            name="ISpecification&lt;TEntity&gt; And&lt;TEntity&gt;"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="31753563-7bf8-46a8-a7a1-e7ad6b906952"
+                  name="this ISpecification&lt;TEntity&gt; leftSpecification"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1aac9028-7aa0-428b-a72e-62d93a202ab6"
+                  name="ISpecification&lt;TEntity&gt; rightSpecification"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
   </packagedElements>
